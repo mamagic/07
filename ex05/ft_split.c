@@ -77,6 +77,8 @@ char	**ft_split(char *str, char *charset)
 
 	i = 0;
 	arr = (char **)malloc(sizeof(char *) * size_charset(str, charset));
+	if(!arr)
+		return NULL;
 	while (*str != '\0')
 	{
 		if (!find_charset(*str, charset))
