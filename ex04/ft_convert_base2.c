@@ -1,9 +1,10 @@
 #include <stdlib.h>
 
-int		len(char *str);
-int		find_char(char ch, char *base_to);
-int		cal_result_len(long long num, char *base_to);
-
+int			len(char *str);
+int			find_char(char ch, char *base_to);
+int			cal_result_len(long long num, char *base_to);
+int			check_base(char *base);
+long long	ten_base(char *nbr, char *base);
 char	*tranlate_loop(long long num, char *base_to, int size, char *arr)
 {
 	int	i;
@@ -35,7 +36,7 @@ char	*translate(long long num, char *base_to)
 
 	size = cal_result_len(num, base_to);
 	if (size <= 0)
-		return NULL;
+		return (NULL);
 	arr = (char *)malloc(sizeof(char) * (size));
 	arr = tranlate_loop(num, base_to, size, arr);
 	return (arr);
@@ -54,7 +55,7 @@ int	cal_result_len(long long num, char *base_to)
 	}
 	base_to_len = len(base_to);
 	if (base_to_len <= 1)
-		return 0;
+		return (0);
 	while (num >= base_to_len)
 	{
 		num /= base_to_len;
